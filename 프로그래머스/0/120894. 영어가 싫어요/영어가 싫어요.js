@@ -3,7 +3,7 @@ function solution(numbers) {
     
     alphabet.forEach(el => {
         if(numbers.includes(el)) {
-            numbers = numbers.replaceAll(el, alphabet.indexOf(el))
+            numbers = numbers.replace(new RegExp(el, 'g'), alphabet.indexOf(el))
         }
     })
     
