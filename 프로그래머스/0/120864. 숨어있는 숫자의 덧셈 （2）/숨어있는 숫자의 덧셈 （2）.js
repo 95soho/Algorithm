@@ -3,6 +3,6 @@ function solution(my_string) {
     if(!found) {
         return 0;
     } else {
-        return found.map(e => Number(e)).reduce((a, b) => a + b);
+        return found.reduce((a, b) => a + Number(b), 0);
     }  
 }
