@@ -4,7 +4,5 @@ function solution(arr, k) {
         arrSet.push(-1);
     }
     
-    if(arrSet.length >= k) {
-        return arrSet.slice(0, k)
-    }
+    return arrSet.slice(0, k)
 }
