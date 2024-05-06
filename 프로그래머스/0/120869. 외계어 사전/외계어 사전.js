@@ -1,18 +1,12 @@
 function solution(spell, dic) {
-    const filtered = dic.filter(v => v.length === spell.length);
-    
-    let i = 0;
-    while(i < filtered.length) {
+    return dic.some(word => {
         let arr = [...spell];
-        filtered[i].split("").forEach(e => {
+        return word.split("").every(e => {
             if(arr.includes(e)) {
-                arr = arr.filter((_, i) => i !== arr.indexOf(e))
+                arr = arr.filter((_, i) => i !== arr.indexOf(e));
+                return true;
             }
-        })
-        if(arr.length === 0) return 1;
-        
-        i++
-    }
-    
-    return 2;
+            return false;
+        }) && arr.length === 0;
+    }) ? 1 : 2;
 }
