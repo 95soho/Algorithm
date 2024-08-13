@@ -1,11 +1,11 @@
 function solution(A, B) {
-    if(A === B) return 0;
-    
-    for(let i = 0; i < A.length; i++) {        
-        A = A.split("").map((e, index) => {
-            return index === 0 ? A[A.length - 1] : A[index -1]
-        }).join("")
-        if(A === B) return i + 1;
+    if (A === B) return 0;
+
+    let rotated = A;
+    for (let i = 1; i <= A.length; i++) {
+        rotated = rotated[rotated.length - 1] + rotated.slice(0, rotated.length - 1);
+        if (rotated === B) return i;
     }
+    
     return -1;
 }
