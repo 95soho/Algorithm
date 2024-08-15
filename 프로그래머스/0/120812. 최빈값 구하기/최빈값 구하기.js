@@ -10,6 +10,6 @@ function solution(array) {
     const count = arr.filter(x => x === max).length;
     const result = Object.keys(obj).find(key => obj[key] === max);
     
-    return count > 1 ? -1 : Number(result);
+    return count > 1 ? -1 : +result;
 }
 
