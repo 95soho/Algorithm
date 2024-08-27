@@ -1,19 +1,16 @@
 function solution(polynomial) {
     let a = 0;
     let b = 0;
-    
-    if(polynomial.split(" ").length === 1) return polynomial;
-    
+        
     polynomial.split(" ").forEach(str => {
         if(str.includes("x")) {
-            str[0] === "x" ? a++ : a += +str.slice(0, str.length - 1)
-        }
-        if(Number.isInteger(+str)) b += +str
+            const num = str[0] === "x" ? 1 : parseInt(str.replace("x", ""));
+            a += num;
+        } else if(!isNaN(str)) b += parseInt(str)
     })
     
-    if(!a) return b.toString();
-    if(!b) return a + "x";
-    if(a === 1) return "x" + " " + "+" + " " + b;
-    
-    return a + "x" + " " + "+" + " " + b;
+    const aStr = a === 1 ? "x" : a > 1 ? `${a}x` : "";
+    const bStr = b ? `${b}` : "";
+
+    return [aStr, bStr].filter(Boolean).join(" + ");
 }
